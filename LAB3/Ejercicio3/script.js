@@ -10,7 +10,7 @@ function calcularDiasParaArequipa() {
     const diferenciaTiempo = diaArequipa - hoy;
     const diasFaltantes = Math.ceil(diferenciaTiempo / (1000 * 60 * 60 * 24));
   
-    const mensaje = `Faltan ${diasFaltantes} día(s) para el Día de Arequipa 🎉🇵🇪`;
+    const mensaje = `Faltan ${diasFaltantes} día(s) para el Día de Arequipa`;
     document.getElementById('resultado').textContent = mensaje;
   }
   
