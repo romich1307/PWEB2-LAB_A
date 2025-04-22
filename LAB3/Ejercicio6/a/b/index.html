@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora Dinámica</title>
+  <link rel="stylesheet" href="estilo2.css">
+</head>
+<body>
+
+  <h2>Calculadora Dinámica</h2>
+
+  <input type="number" id="valor1" placeholder="Valor 1">
+  <select id="operador">
+    <optgroup label="Aritméticos">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+    </optgroup>
+    <optgroup label="Lógicos">
+      <option value="&&">AND (&&)</option>
+      <option value="||">OR (||)</option>
+    </optgroup>
+    <optgroup label="Bits">
+      <option value="&">AND (&)</option>
+      <option value="|">OR (|)</option>
+      <option value="^">XOR (^)</option>
+      <option value="<<">Desplazar <<</option>
+      <option value=">>">Desplazar >></option>
+    </optgroup>
+  </select>
+  <input type="number" id="valor2" placeholder="Valor 2">
+  <button onclick="calcular()">Calcular</button>
+
+  <div id="resultado"></div>
+
+  <script src="script2.js"></script>
+</body>
+</html>
