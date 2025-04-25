@@ -1,4 +1,4 @@
-# PWEB2-LAB_A# Programación Web 2 - Laboratorio Grupo A**
+# Programación Web 2 - Laboratorio Grupo A
 
 ## Estudiante  
 **Romina Giuliana Camargo Hilachoque**
