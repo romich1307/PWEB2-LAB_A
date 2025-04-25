@@ -7,4 +7,4 @@ const hoy = new Date();
 const numeroDia = hoy.getDay();
 const textoDia = obtenerDiaTexto(numeroDia);
 
-console.log("Hoy es:", textoDia);
+document.getElementById("dia").textContent = textoDia;
