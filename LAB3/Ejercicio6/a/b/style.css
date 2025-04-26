@@ -1,18 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@400;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Funnel Sans', sans-serif;
     text-align: center;
     margin-top: 100px;
-  }
-  
-  input, select, button {
+    background-color: #99abe7;
+    color: #223979;
+}
+
+input, select, button {
     margin: 10px;
     padding: 10px;
     font-size: 16px;
-  }
-  
-  #resultado {
+    font-family: 'Funnel Sans', sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #223979;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #6b87e4;
+}
+
+#resultado {
     margin-top: 20px;
     font-size: 20px;
     font-weight: bold;
-  }
-  
+    color: #223979;
+}
