@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@400;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Funnel Sans', sans-serif;
     text-align: center;
     margin-top: 100px;
-    background-color: #f3f3f3;
+    background-color: #a2b893;
 }
 
 input {
@@ -10,12 +12,18 @@ input {
     padding: 10px;
     font-size: 16px;
     margin-bottom: 10px;
+    font-family: 'Funnel Sans', sans-serif;
 }
 
 button {
+    font-family: 'Funnel Sans', sans-serif;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    background-color: #b7d8a1;
+    color: #3d4438;
+    border: #b7d8a1 solid 2px;
+    border-radius: 17px;
 }
 
 #resultado {
