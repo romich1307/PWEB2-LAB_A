@@ -5,7 +5,6 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
     const columnas = parseInt(document.getElementById("columnas").value);
     const tablaContainer = document.getElementById("tabla-container");
 
-    // Limpia antes de crear nueva tabla
     tablaContainer.innerHTML = "";
     document.getElementById("resultado").textContent = "";
     document.getElementById("sumarBtn").style.display = "block";
@@ -18,7 +17,7 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
         const row = document.createElement("tr");
         for (let j = 0; j < columnas; j++) {
             const cell = document.createElement("td");
-            const numero = Math.floor(Math.random() * 100); // número entre 0-99
+            const numero = Math.floor(Math.random() * 100);
             cell.textContent = numero;
             cell.classList.add("valor");
             row.appendChild(cell);
