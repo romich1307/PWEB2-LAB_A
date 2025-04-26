@@ -21,5 +21,5 @@ function calcular() {
     }
   
     document.getElementById('resultado').innerText = `Resultado: ${resultado}`;
-  }
+}
   
