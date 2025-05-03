@@ -31,7 +31,7 @@ function drawChart(data) {
   const chartData = google.visualization.arrayToDataTable([header, ...rows]);
 
   const options = {
-    title: 'Crecimiento de Confirmados por Región (sin Lima ni Callao)',
+    title: 'Crecimiento de Confirmados por Region (sin Lima ni Callao)',
     curveType: 'function',
     legend: { position: 'right' }
   };
