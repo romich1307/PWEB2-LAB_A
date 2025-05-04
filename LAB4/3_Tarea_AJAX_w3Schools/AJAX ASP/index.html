@@ -1,18 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>AJAX ASP Example</title>
-</head>
-<body>
-
-    <p>Start typing a name in the input field below:</p>
-    <p>Suggestions: <span id="txtHint"></span></p>
-
-    <form>
-        First name: <input type="text" onkeyup="showHint(this.value)">
-    </form>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX PHP - Sugerencias</title>
     <script>
         function showHint(str) {
             if (str.length == 0) {
@@ -22,12 +13,22 @@
                 const xmlhttp = new XMLHttpRequest();
                 xmlhttp.onload = function() {
                     document.getElementById("txtHint").innerHTML = this.responseText;
-                }
-                xmlhttp.open("GET", "gethint.asp?q=" + str, true);
+                };
+                xmlhttp.open("GET", "gethint.php?q=" + str, true);
                 xmlhttp.send();
             }
         }
     </script>
+</head>
+<body>
+
+<p>Start typing a name in the input field below:</p>
+
+<form action="">
+    First name: <input type="text" onkeyup="showHint(this.value)">
+</form>
+
+<p>Suggestions: <span id="txtHint"></span></p>
 
 </body>
 </html>
