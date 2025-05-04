@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Ejemplo de getResponseHeader()</h2>
+
+  <p>Última modificación del archivo:</p>
+  <div id="demo"></div>
+
+  <script>
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+      const lastModified = this.getResponseHeader("Last-Modified");
+      document.getElementById("demo").innerHTML = lastModified;
+    };
+    xhttp.open("GET", "ajax_info.txt", true);
+    xhttp.send();
+  </script>
+</body>
+</html>
