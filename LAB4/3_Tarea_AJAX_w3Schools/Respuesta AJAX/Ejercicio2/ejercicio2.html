@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Usando responseXML</h2>
+  <button onclick="loadXML()">Cargar artistas</button>
+  <p id="demo"></p>
+
+  <script>
+    function loadXML() {
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function() {
+        const xmlDoc = xhttp.responseXML;
+        const x = xmlDoc.getElementsByTagName("ARTIST");
+        let txt = "";
+        for (let i = 0; i < x.length; i++) {
+          txt += x[i].childNodes[0].nodeValue + "<br>";
+        }
+        document.getElementById("demo").innerHTML = txt;
+      };
+      xhttp.open("GET", "cd_catalog.xml");
+      xhttp.send();
+    }
+  </script>
+</body>
+</html>
