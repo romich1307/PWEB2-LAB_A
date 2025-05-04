@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Usando responseText</h2>
+  <button onclick="loadText()">Cargar texto</button>
+  <p id="demo"></p>
+
+  <script>
+    function loadText() {
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function() {
+        document.getElementById("demo").innerHTML = this.responseText;
+      };
+      xhttp.open("GET", "ajax_info.txt");
+      xhttp.send();
+    }
+  </script>
+</body>
+</html>
