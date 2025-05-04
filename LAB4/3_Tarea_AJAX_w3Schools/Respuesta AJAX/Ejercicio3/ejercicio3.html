@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>getAllResponseHeaders</h2>
+  <button onclick="loadHeaders()">Ver headers</button>
+  <pre id="demo"></pre>
+
+  <script>
+    function loadHeaders() {
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function() {
+        document.getElementById("demo").innerText = this.getAllResponseHeaders();
+      };
+      xhttp.open("GET", "ajax_info.txt");
+      xhttp.send();
+    }
+  </script>
+</body>
+</html>
