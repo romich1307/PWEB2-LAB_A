@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AJAX PHP Ejemplo</title>
+</head>
+<body>
+
+  <p>Empieza a escribir un nombre en el campo de entrada:</p>
+  <form>
+    Nombre: <input type="text" onkeyup="showHint(this.value)">
+  </form>
+
+  <p>Sugerencias: <span id="txtHint"></span></p>
+
+  <script>
+    function showHint(str) {
+      if (str.length === 0) {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+      } else {
+        const xmlhttp = new XMLHttpRequest();
+        xmlhttp.onload = function () {
+          document.getElementById("txtHint").innerHTML = this.responseText;
+        };
+        xmlhttp.open("GET", "gethint.php?q=" + encodeURIComponent(str), true);
+        xmlhttp.send();
+      }
+    }
+  </script>
+
+</body>
+</html>
