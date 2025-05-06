@@ -1,8 +1,11 @@
 function recitar() {
-  const url = 'http://localhost:3000/recitar';
+  const url = '/2_Ejercicios_Resueltos/Ejercicio2/recitar'; 
   fetch(url)
-    .then(response => response.json())
+    .then(response => response.text())
     .then(data => {
-      document.querySelector("#poema").innerHTML = data.text;
+      document.querySelector("#poema").innerHTML = data; 
+    })
+    .catch(error => {
+      console.error('Error al cargar el poema:', error); 
     });
 }
