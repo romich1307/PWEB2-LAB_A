@@ -46,7 +46,7 @@ class Picture:
     return Picture([line * n for line in self.img])
 
   def verticalRepeat(self, n):
-    return Picture(None)
+    return Picture(self.img * n)
 
   #Extra: Sólo para realmente viciosos 
   def rotate(self):
