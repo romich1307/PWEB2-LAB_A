@@ -1,0 +1,13 @@
+# Ignorar entorno virtual
+env/
+
+# Ignorar archivos temporales de Python
+__pycache__/
+*.pyc
+
+# Ignorar base de datos temporal
+db.sqlite3
+
+# Ignorar archivos del sistema/editor
+.vscode/
+*.log
