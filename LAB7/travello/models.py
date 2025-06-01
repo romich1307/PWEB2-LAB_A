@@ -4,9 +4,9 @@ from django.db import models
 
 class Destination(models.Model):
     
-    name = models.CharField(max_length=200)
-    img = models.ImageField(upload_to='pics')
-    desc = models.TextField()
-    price = models.IntegerField()
-    offer = models.BooleanField(default=False)
+    nombreCiudad = models.CharField(max_length=200)
+    imagenCiudad = models.ImageField(upload_to='pics')
+    descripcionCiudad = models.TextField()
+    precioTour = models.IntegerField()
+    ofertaTour = models.BooleanField(default=False)
 
