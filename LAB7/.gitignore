@@ -1,0 +1,35 @@
+# Entorno virtual
+env/
+venv/
+
+# Archivos de Python compilados
+__pycache__/
+*.py[cod]
+*.so
+
+# Archivos temporales del editor
+*.swp
+*.swo
+*.bak
+*~
+.vscode/
+.idea/
+
+# Archivos de base de datos
+db.sqlite3
+
+# Archivos de media (imágenes subidas)
+media/
+
+# Archivos de migraciones (opcional)
+*/migrations/*.py
+*/migrations/*.pyc
+!*/migrations/__init__.py
+
+# Archivos de configuración local
+*.env
+.env
+.env.*
+
+# Archivos de logs
+*.log
