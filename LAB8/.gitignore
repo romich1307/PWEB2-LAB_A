@@ -29,3 +29,4 @@ media/
 
 # Archivos de migraciones (opcional, si quieres ignorarlos)
 # **/migrations/
+.env
