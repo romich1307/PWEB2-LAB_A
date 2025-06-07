@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Relaciones en Django</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f4; }
+        h1 { color: #333366; text-align: center; }
+        .menu { text-align: center; margin-bottom: 30px; }
+        .menu button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #333366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .menu button:hover {
+            background-color: #5555aa;
+        }
+        .section {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 800px;
+            display: none;
+        }
+        h2 { color: #555; }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-bottom: 10px; }
+    </style>
+    <script>
+        function mostrarSeccion(id) {
+            document.getElementById("peliculas").style.display = "none";
+            document.getElementById("lenguajes").style.display = "none";
+            document.getElementById(id).style.display = "block";
+        }
+    </script>
+</head>
+<body>
+
+<h1>Relaciones en Django</h1>
+
+<div class="menu">
+    <button onclick="mostrarSeccion('peliculas')"> Películas y Personajes</button>
+    <button onclick="mostrarSeccion('lenguajes')"> Lenguajes y Frameworks</button>
+</div>
+
+<div id="peliculas" class="section">
+    <h2> Películas y Personajes (Relación Muchos a Muchos)</h2>
+    {% for character in characters %}
+        <strong>{{ character.name }}:</strong>
+        <ul>
+            {% for movie in character.movies.all %}
+                <li>{{ movie.name }}</li>
+            {% empty %}
+                <li>No tiene películas registradas.</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</div>
+
+<div id="lenguajes" class="section">
+    <h2> Lenguajes y Frameworks (Relación Uno a Muchos)</h2>
+    {% for language in languages %}
+        <strong>{{ language.name }}:</strong>
+        <ul>
+            {% for framework in language.framework_set.all %}
+                <li>{{ framework.name }}</li>
+            {% empty %}
+                <li>No tiene frameworks asociados.</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</div>
+
+</body>
+</html>
