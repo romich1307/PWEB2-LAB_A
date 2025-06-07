@@ -78,5 +78,20 @@
     {% endfor %}
 </div>
 
+<div style="margin-bottom: 20px;">
+    <a href="{% url 'generate-pdf' %}" target="_blank">
+        <button style="padding: 10px 20px; background-color: #3366cc; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Ver PDF
+        </button>
+    </a>
+    <a href="{% url 'generate-pdf' %}?download=1">
+        <button style="padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">
+            Descargar PDF
+        </button>
+    </a>
+</div>
+
+
+
 </body>
 </html>

@@ -17,8 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from relacion_muchos_muchos import views
+from generar_pdf.views import GeneratePDF
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('pdf/', GeneratePDF.as_view(), name='generate-pdf'),
+    path('pdf/download/', GeneratePDF.as_view(), name='download-pdf'),
 ]
