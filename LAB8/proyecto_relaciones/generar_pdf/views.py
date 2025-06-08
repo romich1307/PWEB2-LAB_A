@@ -11,16 +11,16 @@ class GeneratePDF(View):
             "today": "Today",
         }
 
-        pdf = render_to_pdf('invoice.html', context)  # Ya renderiza internamente
+        pdf = render_to_pdf('invoice.html', context)
         if pdf:
             response = HttpResponse(pdf, content_type='application/pdf')
             filename = "Invoice_%s.pdf" % ("12341231")
-            
-            download = request.GET.get("download")  # Si en la URL hay ?download=1 se descarga
-            if download:
-                content = f"attachment; filename='{filename}'"
+
+            download_param = request.GET.get("download", "").strip()
+            if download_param == "1":
+                content = f'attachment; filename={filename}'  # <-- sin comillas
             else:
-                content = f"inline; filename='{filename}'"
+                content = f'inline; filename={filename}'      # <-- sin comillas
             response['Content-Disposition'] = content
             return response
 

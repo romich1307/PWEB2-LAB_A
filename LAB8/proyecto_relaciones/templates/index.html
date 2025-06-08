@@ -121,18 +121,23 @@
     </div>
 
     <div style="margin-bottom: 20px;">
-        <div style="text-align:center; font-weight:600; margin-bottom:0.3rem;">Descargar y visualizar PDF</div>
-        <a href="{% url 'generate-pdf' %}" target="_blank">
-            <button class="chevere-btn" style="background-color: #3730a3">
-                Ver PDF
-            </button>
-        </a>
-        <a href="{% url 'generate-pdf' %}?download=1">
-            <button class="chevere-btn" style="background-color: #3730a3">
-                Descargar PDF
-            </button>
-        </a>
-    </div>
+    <div style="text-align:center; font-weight:600; margin-bottom:0.3rem;">Descargar y visualizar PDF</div>
+
+    <!-- Ver PDF en el navegador -->
+    <a href="{% url 'generate-pdf' %}" target="_blank">
+        <button class="chevere-btn" style="background-color: #3730a3">
+            Ver PDF
+        </button>
+    </a>
+
+    <!-- Descargar PDF -->
+    <a href="{% url 'generate-pdf' %}?download=1">
+        <button class="chevere-btn" style="background-color: #3730a3">
+            Descargar PDF
+        </button>
+    </a>
+</div>
+
     <div style="text-align:center; font-weight:600; margin-bottom:0.3rem;">Enviar correo</div>
     <a href="{% url 'send-email' %}">
         <button class="chevere-btn" style="background-color: #3730a3;">
