@@ -4,22 +4,60 @@
     <meta charset="UTF-8">
     <title>Relaciones en Django</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f4; }
-        h1 { color: #333366; text-align: center; }
-        .menu { text-align: center; margin-bottom: 30px; }
-        .menu button {
-            margin: 0 10px;
-            padding: 10px 20px;
-            background-color: #333366;
-            color: white;
+        /* Estilos generales */
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f4f6fb;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+        }
+
+        /* Contenedor principal */
+        .center-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Título centrado */
+        .center-container h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #22223b;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        /* Botones uniformes */
+        .chevere-btn {
+            width: 260px;
+            padding: 1rem 0;
+            margin: 0.5rem 0;
+            background: #4f46e5;
+            color: #fff;
             border: none;
-            border-radius: 5px;
-            font-weight: bold;
+            border-radius: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.08);
+            transition: background 0.2s, transform 0.15s;
             cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            letter-spacing: 1px;
+            display: block;
         }
-        .menu button:hover {
-            background-color: #5555aa;
+
+        .chevere-btn:hover {
+            background: #3730a3;
+            transform: translateY(-2px) scale(1.03);
         }
+
+        /* Secciones */
         .section {
             background-color: #fff;
             padding: 20px;
@@ -29,6 +67,7 @@
             max-width: 800px;
             display: none;
         }
+
         h2 { color: #555; }
         ul { list-style-type: none; padding-left: 0; }
         li { margin-bottom: 10px; }
@@ -43,61 +82,64 @@
 </head>
 <body>
 
-<h1>Relaciones en Django</h1>
+<div class="center-container">
+    <h1>Relaciones en Django</h1>
 
-<div class="menu">
-    <button onclick="mostrarSeccion('peliculas')"> Películas y Personajes</button>
-    <button onclick="mostrarSeccion('lenguajes')"> Lenguajes y Frameworks</button>
-</div>
+    <div class="menu">
+        <div style="text-align:center; font-weight:600; margin-bottom:0.3rem;">Relación de Muchos a Muchos</div>
+        <button class="chevere-btn" onclick="mostrarSeccion('peliculas')"> Películas y Personajes</button>
+        <div style="text-align:center; font-weight:600; margin-bottom:0.3rem;">Relación de Uno a Muchos</div>
+        <button class="chevere-btn" onclick="mostrarSeccion('lenguajes')"> Lenguajes y Frameworks</button>
+    </div>
 
-<div id="peliculas" class="section">
-    <h2> Películas y Personajes (Relación Muchos a Muchos)</h2>
-    {% for character in characters %}
-        <strong>{{ character.name }}:</strong>
-        <ul>
-            {% for movie in character.movies.all %}
-                <li>{{ movie.name }}</li>
-            {% empty %}
-                <li>No tiene películas registradas.</li>
-            {% endfor %}
-        </ul>
-    {% endfor %}
-</div>
+    <div id="peliculas" class="section">
+        <h2> Películas y Personajes (Relación Muchos a Muchos)</h2>
+        {% for character in characters %}
+            <strong>{{ character.name }}:</strong>
+            <ul>
+                {% for movie in character.movies.all %}
+                    <li>{{ movie.name }}</li>
+                {% empty %}
+                    <li>No tiene películas registradas.</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </div>
 
-<div id="lenguajes" class="section">
-    <h2> Lenguajes y Frameworks (Relación Uno a Muchos)</h2>
-    {% for language in languages %}
-        <strong>{{ language.name }}:</strong>
-        <ul>
-            {% for framework in language.framework_set.all %}
-                <li>{{ framework.name }}</li>
-            {% empty %}
-                <li>No tiene frameworks asociados.</li>
-            {% endfor %}
-        </ul>
-    {% endfor %}
-</div>
+    <div id="lenguajes" class="section">
+        <h2> Lenguajes y Frameworks (Relación Uno a Muchos)</h2>
+        {% for language in languages %}
+            <strong>{{ language.name }}:</strong>
+            <ul>
+                {% for framework in language.framework_set.all %}
+                    <li>{{ framework.name }}</li>
+                {% empty %}
+                    <li>No tiene frameworks asociados.</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </div>
 
-<div style="margin-bottom: 20px;">
-    <a href="{% url 'generate-pdf' %}" target="_blank">
-        <button style="padding: 10px 20px; background-color: #3366cc; color: white; border: none; border-radius: 5px; cursor: pointer;">
-            Ver PDF
+    <div style="margin-bottom: 20px;">
+        <div style="text-align:center; font-weight:600; margin-bottom:0.3rem;">Descargar y visualizar PDF</div>
+        <a href="{% url 'generate-pdf' %}" target="_blank">
+            <button class="chevere-btn" style="background-color: #3730a3">
+                Ver PDF
+            </button>
+        </a>
+        <a href="{% url 'generate-pdf' %}?download=1">
+            <button class="chevere-btn" style="background-color: #3730a3">
+                Descargar PDF
+            </button>
+        </a>
+    </div>
+    <div style="text-align:center; font-weight:600; margin-bottom:0.3rem;">Enviar correo</div>
+    <a href="{% url 'send-email' %}">
+        <button class="chevere-btn" style="background-color: #3730a3;">
+            Enviar correo
         </button>
     </a>
-    <a href="{% url 'generate-pdf' %}?download=1">
-        <button style="padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">
-            Descargar PDF
-        </button>
-    </a>
 </div>
-<a href="{% url 'send-email' %}">
-    <button style="padding: 10px 20px; background-color: #ff5733; color: white; border: none; border-radius: 5px; cursor: pointer;">
-        Enviar correo
-    </button>
-</a>
-
-
-
 
 </body>
 </html>
